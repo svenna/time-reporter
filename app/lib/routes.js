@@ -32,3 +32,9 @@ Router.map(function() {
     template: 'fullArticle'
   });
 });
+
+Router.route('companies', {
+  name: 'companies',
+  controller: 'CompaniesController',
+  where: 'client'
+});

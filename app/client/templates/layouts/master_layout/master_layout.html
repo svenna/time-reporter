@@ -4,7 +4,16 @@
       {{> nav }}
     </header>
     {{> yield}}
-  </div>
+  <footer>
+    <div class="container-fluid">
+      <div class="footer">
+        <p class="text-muted text-justify">
+          Copyright 2015-2016 Fredrik Svensson
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>
 </template>
 
 <template name='nav'>
@@ -19,32 +28,26 @@
           <span class="icon-bar"></span>
         </button>
         {{> navBrand}}
-        {{> loginButtons align="right"}}
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           {{> navItems}}
         </ul>
+        {{> loginButtons align="right"}}
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 </template>
 
 <template name="navBrand">
-  <a class="navbar-brand" href="{{ pathFor 'home' }}">IR Demo</a>
+  <a class="navbar-brand" href="{{ pathFor 'home' }}">Time Reporter</a>
 </template>
 
 <template name='navItems'>
   <li class="{{ activeIfTemplateIs 'articles' }}">
-    <a href="{{ pathFor 'articles'}}">Articles</a>
+    <a href="{{ pathFor 'companies'}}">Companies</a>
   </li>
-  <li class="{{ activeIfTemplateIs 'about' }}">
-    <a href="{{pathFor 'about'}}">About</a>
-  </li>
-</template>
-
-<template name='somthint'>
   <li class="{{ activeIfTemplateIs 'articles' }}">
     <a href="{{ pathFor 'articles'}}">Articles</a>
   </li>
