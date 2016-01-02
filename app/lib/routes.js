@@ -67,3 +67,15 @@ Router.route('home/allowance', {
   controller: 'AllowanceController',
   where: 'client'
 });
+
+Router.route('companies/add', {
+  name: 'AddCompany',
+  controller: 'CompaniesController',
+  where: 'client'
+});
+
+Router.route('home/edit', {
+  name: 'EditCompany',
+  controller: 'CompaniesController',
+  where: 'client'
+});
