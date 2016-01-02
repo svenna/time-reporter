@@ -45,11 +45,14 @@
 </template>
 
 <template name='navItems'>
-  <li class="{{ activeIfTemplateIs 'articles' }}">
+  <li class="{{ activeIfTemplateIs 'reports' }}">
+    <a href="{{ pathFor 'reports'}}">Reports</a>
+  </li>
+  <li class="{{ activeIfTemplateIs 'companies' }}">
     <a href="{{ pathFor 'companies'}}">Companies</a>
   </li>
-  <li class="{{ activeIfTemplateIs 'articles' }}">
-    <a href="{{ pathFor 'articles'}}">Articles</a>
+  <li class="{{ activeIfTemplateIs 'adminstration' }}">
+    <a href="{{ pathFor 'adminstration'}}">Adminstration</a>
   </li>
   <li class="{{ activeIfTemplateIs 'about' }}">
     <a href="{{pathFor 'about'}}">About</a>

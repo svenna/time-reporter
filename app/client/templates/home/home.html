@@ -1,14 +1,51 @@
 
 <template name="home">
+  {{> sub_nav}}
   <h2>Home</h2>
   <p>You are on the home screen.</p>
 </template>
+
+<template name='sub_nav'>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          {{> homeNavItems}}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</template>
+
+<template name='homeNavItems'>
+  <li class="{{ activeIfTemplateIs 'home' }}">
+    <a href="{{ pathFor 'home'}}">Time</a>
+  </li>
+  <li class="{{ activeIfTemplateIs 'expenses' }}">
+    <a href="{{ pathFor 'expenses'}}">Expenses</a>
+  </li>
+  <li class="{{ activeIfTemplateIs 'allowance' }}">
+    <a href="{{ pathFor 'allowance'}}">Allowances</a>
+  </li>
+</template>
+
+
 
 <template name = 'about'>
   <h2>About this site</h2>
 </template>
 
-<template name = 'articles'>
+<!-- <template name = 'articles'>
   <h2>Articles</h2>
     <ul>
        {{#each this}}
@@ -22,4 +59,4 @@
 <template name = 'fullArticle'>
   <h2>{{ title }}</h2>
   <p>{{ body }}</p>
-</template>
+</template> -->

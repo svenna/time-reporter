@@ -17,3 +17,11 @@
 // Template.Home.onRendered(function() {});
 //
 // Template.Home.onDestroyed(function() {});
+
+Template.homeNavItems.helpers({
+  activeIfTemplateIs: function(template) {
+    var currentRoute = Router.current();
+    return currentRoute &&
+      template === currentRoute.lookupTemplate() ? 'active' : '';
+  }
+});
