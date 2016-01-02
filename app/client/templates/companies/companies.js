@@ -6,7 +6,11 @@ Template.Companies.events({});
 /*****************************************************************************/
 /* Companies: Helpers */
 /*****************************************************************************/
-Template.Companies.helpers({});
+Template.Companies.helpers({
+  companies: function() {
+    return Companies.find({});
+  }
+});
 
 /*****************************************************************************/
 /* Companies: Lifecycle Hooks */
@@ -24,3 +28,5 @@ Template.companyNavItems.helpers({
       template === currentRoute.lookupTemplate() ? 'active' : '';
   }
 });
+
+CompaniesFilter = new FilterCollections(Companies. {});
