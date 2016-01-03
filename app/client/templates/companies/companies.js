@@ -28,6 +28,17 @@ Template.Companies.helpers({
         label: 'Company name'
       }]
     };
+  },
+  selectedCompany: function() {
+    var company = Session.get('company');
+    if (company) {
+      return Companies.findOne({
+        name: company.name
+      })
+    } else {
+      Companies.findOne();
+
+    }
   }
 });
 
