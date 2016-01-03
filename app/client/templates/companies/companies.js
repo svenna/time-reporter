@@ -37,15 +37,25 @@ Template.Companies.helpers({
       })
     } else {
       Companies.findOne();
-
     }
+  },
+  tableSettings: function() {
+    return {
+      currentPage: Template.instance().currentPage
+    };
   }
 });
 
 /*****************************************************************************/
 /* Companies: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Companies.onCreated(function() {});
+Template.Companies.onCreated(function() {
+  var currentPage = new ReactiveVar(Session.get('current-page') || 0);
+  this.currentPage = currentPage;
+  this.autorun(function() {
+    Session.set('current-page', currentPage.get());
+  });
+});
 
 Template.Companies.onRendered(function() {});
 

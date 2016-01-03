@@ -6,7 +6,7 @@
         {{> reactiveTable class="table table-bordered table-hover table-condensed" settings=companiesTableSettings}}
       </div>
       <div class="col-md-6">
-        {{> quickForm collection="Companies" doc=selectedCompany id="EditCompany" type="update"}}
+        {{> quickForm collection="Companies" doc=selectedCompany id="EditCompany" type="update" buttonContent="Update"}}
       </div>
     </div>
   </div>
@@ -56,7 +56,8 @@
 </template>
 
 <template name="AddCompany">
-  {{>companySubNav}} {{> quickForm collection="Companies" id="AddCompany" type="insert"}}
+  {{>companySubNav}}
+  {{> quickForm collection="Companies" id="AddCompany" type="insert"}}
 </template>
 
 <template name="RemoveCompany">

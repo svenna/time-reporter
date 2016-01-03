@@ -22,7 +22,7 @@ if (Meteor.isServer) {
     },
 
     update: function(userId, doc, fieldNames, modifier) {
-      return true;
+      return false;
     },
 
     remove: function(userId, doc) {
@@ -31,31 +31,29 @@ if (Meteor.isServer) {
   });
 }
 
-AddressSchema = SimpleSchema({
-  name: {
+
+AddressSchema = new SimpleSchema({
+  alternateName: {
     type: String,
-    label: "Name",
-    max: 200
+    max: 100,
+    optional: true
   },
-  carryoff: {
+  street: {
     type: String,
-    label: "C/O"
-  },
-  addr1: {
-    type: String,
-    label: "Address 1"
-  },
-  addr2: {
-    type: String,
-    label: "Address 2"
-  },
-  postcode: {
-    type: Number,
-    label: "Post Code"
+    max: 100
   },
   city: {
     type: String,
-    label: "City"
+    max: 50
+  },
+  state: {
+    type: String,
+    regEx: /^A[LKSZRAEP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]$/,
+    optional: true
+  },
+  zip: {
+    type: String,
+    regEx: /^[0-9]{5}$/
   },
   country: {
     type: String,
@@ -64,47 +62,29 @@ AddressSchema = SimpleSchema({
 });
 
 CompanySchema = new SimpleSchema({
-  companyAddress: {
-    type: [AddressSchema]
-  },
   name: {
     type: String,
     label: "Name",
     max: 200
   },
-  carryoff: {
-    type: String,
-    label: "C/O"
+  companyAddress: {
+    type: [AddressSchema],
+    minCount: 1
   },
-  addr1: {
-    type: String,
-    label: "Address 1"
+  invoiceEmail: {
+    type: [String],
+    label: "Invoice Email",
+    minCount: 1
   },
-  addr2: {
+  Addressee: {
     type: String,
-    label: "Address 2"
-  },
-  postcode: {
-    type: Number,
-    label: "Post Code"
-  },
-  city: {
-    type: String,
-    label: "City"
-  },
-  country: {
-    type: String,
-    label: "Country"
+    label: "Addressee"
   },
   lime_link: {
     type: String,
     label: "Lime Link",
     optional: true,
     regEx: SimpleSchema.RegEx.Url
-  },
-  invoiceEmail: {
-    type: String,
-    label: "Invoice Email"
   }
 });
 
