@@ -1,7 +1,12 @@
 /*****************************************************************************/
 /* Companies: Event Handlers */
 /*****************************************************************************/
-Template.Companies.events({});
+Template.Companies.events({
+  'click .reactive-table tbody tr': function(event) {
+    var company = this;
+    Session.set('company', company);
+  }
+});
 
 /*****************************************************************************/
 /* Companies: Helpers */
@@ -9,6 +14,20 @@ Template.Companies.events({});
 Template.Companies.helpers({
   companies: function() {
     return Companies.find({});
+  },
+  companiesCollction: function() {
+    return Companies;
+  },
+  companiesTableSettings: function() {
+    return {
+      collection: Companies,
+      rowsPerPage: 10,
+      showFilter: true,
+      fields: [{
+        key: 'name',
+        label: 'Company name'
+      }]
+    };
   }
 });
 

@@ -26,3 +26,5 @@ accounts-ui
 mizzao:autocomplete
 aldeed:autoform
 aldeed:collection2
+aldeed:tabular
+aslagle:reactive-table

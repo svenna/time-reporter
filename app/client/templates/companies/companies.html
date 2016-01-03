@@ -1,13 +1,13 @@
 <template name="Companies">
   {{> companySubNav}}
   <div class="companies">
-    <h1>Companies</h1>
     <div class="row">
-    </div>
-    <div class="row">
-      <ul class="list-unstyled">
-        {{#each companies}} {{> company}} {{/each}}
-      </ul>
+      <div class="col-md-6">
+        {{> reactiveTable class="table table-bordered table-hover table-condensed" settings=companiesTableSettings}}
+      </div>
+      <div class="col-md-6">
+        {{> quickForm collection="Companies" id="EditCompany" type="update"}}
+      </div>
     </div>
   </div>
 </template>
