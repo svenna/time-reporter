@@ -28,5 +28,3 @@ Template.companyNavItems.helpers({
       template === currentRoute.lookupTemplate() ? 'active' : '';
   }
 });
-
-CompaniesFilter = new FilterCollections(Companies. {});
